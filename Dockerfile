@@ -19,5 +19,5 @@ RUN mkdir /phpunit && cd /phpunit && composer require phpunit/phpunit && ln -s /
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 COPY "entrypoint.sh" "/entrypoint.sh"
-RUN chmod +x /entrypoint.s
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
