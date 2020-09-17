@@ -1,7 +1,9 @@
 #!/bin/bash
 
-cat $GITHUB_WORKSPACE
-phpunit -c "${GITHUB_WORKSPACE}/phpunit.xml" --coverage-html coverage.html $GITHUB_WORKSPACE
+cd $GITHUB_WORKSPACE
+composer install
+
+vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html ./
 
 MARKDOWN=$(pandoc -f html -t coverage.html)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
