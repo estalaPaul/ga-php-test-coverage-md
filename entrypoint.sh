@@ -1,6 +1,6 @@
 #!/bin/bash
 
-phpunit -c ./phpunit.xml --coverage-html coverage.html ./
+phpunit -c /github/workspace/phpunit.xml --coverage-html coverage.html /github/workspace/
 
 MARKDOWN=$(pandoc -f html -t coverage.html)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
