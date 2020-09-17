@@ -5,7 +5,7 @@ composer install
 
 vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html
 
-MARKDOWN=$(pandoc -f html -t coverage.html)
+MARKDOWN=$(pandoc -f html -t markdown coverage.html)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 curl -sSL \
