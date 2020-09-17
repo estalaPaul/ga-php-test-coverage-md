@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd $GITHUB_WORKSPACE
+if [ -d "vendor" ]; then rm -Rf vendor; fi
 composer install
 
 vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html ./
