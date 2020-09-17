@@ -1,4 +1,4 @@
-FROM php:7.4-cli
+FROM php:7.1-cli
 
 LABEL "com.github.actions.name"="GA-PHPTestCoverage"
 LABEL "com.github.actions.description"="Run phpunit --coverage-html on PR"
@@ -9,7 +9,7 @@ LABEL version="0.0.1"
 LABEL repository="https://github.com/estalaPaul/ga-php-test-coverage-md"
 LABEL homepage="https://github.com/estalaPaul/ga-php-test-coverage-md"
 
-RUN apt-get update && apt-get -y install zip unzip pandoc jq libicu-dev icu-devtools && docker-php-ext-configure intl && docker-php-ext-install intl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get -y install zip unzip pandoc jq libicu-dev && docker-php-ext-configure intl && docker-php-ext-install intl && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- \
 --install-dir=/usr/bin --filename=composer && chmod +x /usr/bin/composer
