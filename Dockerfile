@@ -14,8 +14,6 @@ RUN apt-get update && apt-get -y install zip unzip pandoc jq libicu-dev && docke
 RUN curl -sS https://getcomposer.org/installer | php -- \
 --install-dir=/usr/bin --filename=composer && chmod +x /usr/bin/composer
 
-RUN mkdir /phpunit && cd /phpunit && composer require phpunit/phpunit && ln -s /phpunit/vendor/bin/phpunit /usr/local/bin/phpunit
-
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 COPY "entrypoint.sh" "/entrypoint.sh"
