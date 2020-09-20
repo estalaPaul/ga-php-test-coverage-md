@@ -5,7 +5,7 @@ composer install
 
 vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html
 
-node htmltomd.js
+node /htmltomd.js
 MARKDOWN=$(cat coverage.md)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
