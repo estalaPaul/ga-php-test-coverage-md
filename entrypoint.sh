@@ -3,7 +3,7 @@
 cd $GITHUB_WORKSPACE
 composer install
 
-vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html
+vendor/bin/phpunit -c phpunit.xml --coverage-html coverage
 
 node /htmltomd.js
 MARKDOWN=$(cat coverage.md)

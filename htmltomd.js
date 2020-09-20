@@ -2,7 +2,7 @@ const fs = require('fs')
 const rowDelimiter = '|--|--|--|--|'
 let markdown = ['# Code Coverage']
 
-const content = processHtmlDir('cov/')
+const content = processHtmlDir('coverage/')
 
 fs.writeFileSync('markdowntest.md', content)
 
