@@ -5,7 +5,8 @@ composer install
 
 vendor/bin/phpunit -c phpunit.xml --coverage-html coverage.html
 
-MARKDOWN=$(pandoc -f html -t markdown coverage.html)
+node htmltomd.js
+MARKDOWN=$(cat coverage.md)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 curl -sSL \
@@ -13,5 +14,5 @@ curl -sSL \
   -H "Accept: application/vnd.github.v3+json" \
   -X POST \
   -H "Content-Type: application/json" \
-  -d "{\"body\":[\"$markdown\"]}" \
+  -d "{\"body\":[\"$MARKDOWN\"]}" \
   "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/comments"
