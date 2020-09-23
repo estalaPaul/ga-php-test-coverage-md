@@ -3,10 +3,9 @@
 cd $GITHUB_WORKSPACE
 composer install
 
-vendor/bin/phpunit -c phpunit.xml --coverage-html coverage
+vendor/bin/phpunit -c phpunit.xml --coverage-text coverage.txt
 
-node /htmltomd.js
-MARKDOWN=$(cat coverage.md)
+MARKDOWN=$(pandoc -f plain -t gdm coverage.txt)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 curl -sSL \
