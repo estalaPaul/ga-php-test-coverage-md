@@ -5,7 +5,7 @@ composer install
 
 vendor/bin/phpunit --coverage-text=coverage.txt
 
-MARKDOWN=$(cat coverage.txt)
+MARKDOWN=$(jq -aRs . <<< cat coverage.txt)
 NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
 
 curl -sSL \
