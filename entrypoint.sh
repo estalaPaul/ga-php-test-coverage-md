@@ -12,6 +12,5 @@ curl -sSL \
   -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Accept: application/vnd.github.v3+json" \
   -X POST \
-  -H "Content-Type: application/json" \
-  -d "{\"body\":\"${MARKDOWN}\"}" \
+  -d '{"body":"'"${MARKDOWN}"'"}' \
   "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/comments"
