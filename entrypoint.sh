@@ -15,4 +15,4 @@ curl -sSL \
   -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Accept: application/vnd.github.v3+json" \
   "https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/comments" \
-  -d "{\"body\":\"$markdown\"}"
+  -d "{\"body\":$markdown}"
